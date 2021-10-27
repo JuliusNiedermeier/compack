@@ -1,0 +1,30 @@
+{
+  "name": "compack",
+  "version": "1.0.0",
+  "files": [
+    "dist/**/*",
+    "bin/**/*"
+  ],
+  "bin": {
+    "@juliusniedermeier/compack": "bin/compack",
+    "compack": "bin/compack"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "compack",
+    "cli",
+    "web-components"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "webpack": "^5.60.0"
+  }
+}
