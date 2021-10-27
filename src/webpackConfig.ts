@@ -1,10 +1,19 @@
 import { resolve } from "path";
 
 const defaultConfig = {
-  entry: resolve("src/component.js"),
+  entry: resolve("src/component.ts"),
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        include: [resolve("src")],
+      },
+    ],
+  },
   output: {
     path: resolve("dist"),
-    filename: "webcomponent.js",
+    filename: "bundle.js",
   },
 };
 
