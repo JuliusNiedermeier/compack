@@ -14,5 +14,7 @@ export default async () => {
 };
 
 const getCustomConfig = (path) => {
-  return import(path).then((module) => module).catch(() => ({}));
+  return import(path)
+    .then((module) => (module.default ? module.default : module))
+    .catch(() => ({}));
 };
