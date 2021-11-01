@@ -7,7 +7,6 @@ const defaultConfig = {
       {
         test: /\.ts$/,
         use: "ts-loader",
-        include: [resolve("src")],
       },
     ],
   },
@@ -15,6 +14,7 @@ const defaultConfig = {
     path: resolve("dist"),
     filename: "bundle.js",
   },
+  stats: "verbose",
 };
 
 export default async () => {
