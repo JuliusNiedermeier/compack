@@ -27,6 +27,14 @@ const baseConfig: Configuration = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "css-loader",
+          },
+        ],
+      },
     ],
   },
   output: {
