@@ -3,7 +3,8 @@
   "version": "1.2.0",
   "files": [
     "lib/**/*",
-    "bin/**/*"
+    "bin/**/*",
+    "types.d.ts"
   ],
   "bin": {
     "@juliusniedermeier/compack": "bin/compack",
@@ -20,6 +21,7 @@
   "scripts": {
     "build": "tsc"
   },
+  "types": "./types.d.ts",
   "devDependencies": {
     "@types/node": "^16.11.6",
     "webpack-cli": "^4.9.1"
