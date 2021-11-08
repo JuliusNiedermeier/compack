@@ -19,6 +19,14 @@ const baseConfig: Configuration = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+          },
+        ],
+      },
     ],
   },
   output: {
