@@ -2,9 +2,7 @@ import { resolve } from "path";
 import { Configuration } from "webpack";
 import deepmerge from "deepmerge";
 
-export const tsconfigLocation = resolve(__dirname, "../temp/tsconfig.json");
-
-const baseConfig: Configuration = {
+const baseConfig = (tsconfigLocation?: string): Configuration => ({
   entry: resolve("src/component.ts"),
   module: {
     rules: [
@@ -14,7 +12,7 @@ const baseConfig: Configuration = {
           {
             loader: "ts-loader",
             options: {
-              configFile: tsconfigLocation,
+              configFile: resolve(tsconfigLocation || "tsconfig.json"),
             },
           },
         ],
@@ -44,17 +42,19 @@ const baseConfig: Configuration = {
       type: "module",
     },
   },
-  stats: "summary",
   experiments: {
     outputModule: true,
   },
-};
+});
 
-export default async (path?: string): Promise<Configuration> => {
+export default async (
+  webpackConfig?: string,
+  tsConfig?: string
+): Promise<Configuration> => {
   try {
-    const config = require(resolve(path || "webpack.config.js"));
-    return deepmerge(baseConfig, config);
+    const config = require(resolve(webpackConfig || "webpack.config.js"));
+    return deepmerge(baseConfig(tsConfig), config);
   } catch {
-    return baseConfig;
+    return baseConfig(tsConfig);
   }
 };
