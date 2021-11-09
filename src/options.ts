@@ -14,6 +14,9 @@ export const options: CompackCliOptionList = {
   "--tsconfig": {
     description: "Override the tsconfig.json file",
   },
+  "--init": {
+    description: "Initialize project structure",
+  },
 };
 
 export const parseOptions = (

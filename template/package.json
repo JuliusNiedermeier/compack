@@ -1,0 +1,7 @@
+{
+  "name": "compack-template",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "compack"
+  }
+}
